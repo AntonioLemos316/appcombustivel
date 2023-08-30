@@ -1,8 +1,21 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+// Const dividir feito em jest
+const dividir = (x, y) => {
+  return x / y;
+}
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+const multiplicar = (x, y) => {
+  return x * y;
+}
+
+// it = isto
+describe('App Component', () => {
+  it('foi dividido corretamente?', () => {
+    expect(dividir(500, 5)).toBe(100);
+  });
+
+  it('foi multiplicado corretamente?', () => {
+    expect(multiplicar(100, 5.99)).toBe(599.00);
+  })
+})
+
+export default{};
