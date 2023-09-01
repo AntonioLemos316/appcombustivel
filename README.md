@@ -1,7 +1,7 @@
 # Calculadora de combustivel em react.js com teste em jest.
 
-## A aplicação está em processo de construção.
+### A aplicação está em processo de construção.
 
-### A formula seria (Km Total / Consumo = Abastecimento) * Preço = Valor Final
-### A lógica em si foi, pegar o Total de Km da viagem e dividir pelo consumo de Km/L do veiculo
-### Gerando quantos litros serão necessarios e aplicando o valor do combustivel teremos quanto será o valor final do abastecimento.
+###### A logica seria (Km Total da viagem / Consumo médio do veiculo = Litros necessario para abastecer) * Preço do combustivel = Valor total a pagar.
+
+###### Com essa aplicação simples minha intenção é documentar todo o processo de teste unitario tanto em jest quanto em react testing library
