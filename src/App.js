@@ -1,33 +1,33 @@
-import {useState} from 'react';
+import React from 'react';
 import './App.css';
+import {BrowserRouter as Router, Link, Routes, Route} from 'react-router-dom'
+import Home from './components/Home/Home';
+import CalculoAbastecimento from './components/CalculoAbastecimento/CalculoAbastecimento';
+import DetalhesAbastecimento from './components/DetalhesAbastecimento/DetalhesAbastecimento';
 
 function App() {
-  const [km, setKm] = useState(0);
-  const [consumo, setConsumo] =  useState(0); 
-  const abastecimento = (km / consumo);
-  const [valorCombustivel, setValorCombustivel] = useState(0);
-  const valorFinal = (abastecimento * valorCombustivel);
   return (
-    <>
-    <div className="App">
-      <label>Informe o Km total da viagem </label>
-      <input value={km} onChange={e => setKm(e.target.value)}/>
-      <br></br>
-    
-      <label>Informe o consumo de Km/L do seu veiculo </label>
-      <input value={consumo} onChange={e => setConsumo(e.target.value)}/>
-      <br></br>
-    
-      <label>Voce precisa abastecer {abastecimento.toFixed(2)} Litros</label>
-      <br></br>
-    
-      <label>Informe o valor do combustivel R$</label>
-      <input value={valorCombustivel} onChange={e => setValorCombustivel(e.target.value)}/>
-      <br></br>
-    
-      <label>O custo total para abastecer o carro é R${valorFinal.toFixed(2)}</label>
-    </div>
-    </>
+    <Router>
+      <div className="App">
+        <header>
+          <nav>
+            <ul>
+              <li><Link to='/'>Início</Link></li>
+              <li><Link to='/calcular'>Calcular Abastecimento</Link></li>
+              <li><Link to='/detalhes'>Detalhes do Abastecimento</Link></li>
+            </ul>
+          </nav>
+        </header>
+        
+        <main>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/calcular' element={<CalculoAbastecimento/>} />
+            <Route path='/detalhes' element={<DetalhesAbastecimento/>}/>
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
